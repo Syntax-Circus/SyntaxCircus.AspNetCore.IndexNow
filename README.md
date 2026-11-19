@@ -45,3 +45,13 @@ dotnet pack SyntaxCircus.AspNetCore.IndexNow.slnx -c Release --no-build -o artif
 ```
 
 Tests use deterministic HTTP and DNS doubles. CI builds, tests and packs the project, then uploads the build artifacts to the workflow run.
+
+## Publish a release
+
+Merging to `main` runs the build, all tests and pack, then publishes the tested package to nuget.org. Pull requests and other branches only build and upload artifacts. The publish job uses NuGet trusted publishing through `NuGet/login@v1`, the organization secret `NUGET_USER`, and the GitHub environment `release`, matching the other SyntaxCircus libraries.
+
+The nuget.org trust policy must name repository owner `Syntax-Circus`, repository `SyntaxCircus.AspNetCore.IndexNow`, workflow file `build.yml`, and environment `release`. The organization secret must be available to this repository. No long-lived NuGet API key is required. See [NuGet trusted publishing](https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing).
+
+GitVersion determines the package version. After a successful push to NuGet, the workflow creates `v<package-version>` on the published commit. Tag pushes do not trigger this workflow. The initial version is `0.1.0`; subsequent versions follow the existing GitVersion configuration.
+
+If publication fails, fix the policy, environment or secret access and re-run the failed job from the same workflow run. It reuses that run's tested package. Duplicate package versions are skipped so a retry can finish tagging an already published release.
