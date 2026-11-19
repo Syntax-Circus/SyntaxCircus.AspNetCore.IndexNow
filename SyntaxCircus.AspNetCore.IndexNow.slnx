@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SyntaxCircus.AspNetCore.IndexNow/SyntaxCircus.AspNetCore.IndexNow.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SyntaxCircus.AspNetCore.IndexNow.Tests/SyntaxCircus.AspNetCore.IndexNow.Tests.csproj" />
+  </Folder>
+</Solution>
