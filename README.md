@@ -1,5 +1,9 @@
 # SyntaxCircus.AspNetCore.IndexNow
 
+[![Build](https://github.com/Syntax-Circus/SyntaxCircus.AspNetCore.IndexNow/actions/workflows/build.yml/badge.svg)](https://github.com/Syntax-Circus/SyntaxCircus.AspNetCore.IndexNow/actions/workflows/build.yml)
+[![NuGet](https://img.shields.io/nuget/v/SyntaxCircus.AspNetCore.IndexNow.svg)](https://www.nuget.org/packages/SyntaxCircus.AspNetCore.IndexNow)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A .NET 10 package for previewing a site's sitemap and explicitly submitting selected URLs to IndexNow.
 
 ## Set up a site
